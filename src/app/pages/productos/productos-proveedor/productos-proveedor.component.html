@@ -1,0 +1,42 @@
+<h4>Agrega Productos</h4>
+<div class="input-group input-group-alternative">
+    <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+    </div>
+    <input class="form-control form-control-alternative" placeholder="Buscar" type="text" #caja (keyup)="findByName(caja.value)" />
+</div>
+<table class="table">
+    <thead>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Precio Compra</th>
+        <th>Precio Venta</th>
+        <th>Departamento</th>
+        <th class="text-right">Acciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of PRODUCTOS">
+            <td>{{ producto.codigo }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.compra | currency: 'MXN':'symbol':'0.2-2' }}</td>
+            <td>{{ producto.precio | currency: 'MXN':'symbol':'0.2-2' }}</td>
+            <td>{{ producto.departamento['nombre'] }}</td>
+            <td class="text-center">
+                <button class="btn btn-sm btn-success" (click)="agregarProducto(producto['_id'], producto.nombre, producto.compra)">
+          <i class="fa fa-check"></i>
+        </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<div class="alert alert-default" role="alert" *ngFor="let producto of AGREGAR">
+    <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+    <span class="alert-inner--text">SE AGREGARA AL INVENTARIO {{ producto['cantidad'] }} UNIDADES DE
+    {{ producto['nombre'] }}</span
+  >
+</div>
+<br />
+<button class="btn btn-block btn-success" (click)="realizarInsercion()">
+  <i class="fa fa-check fa-2x"></i>
+</button>

@@ -1,0 +1,32 @@
+<table class="table align-items-center table-flush">
+    <thead>
+        <tr>
+            <th scope="col"><i class="fa fa-user"></i> Nombre</th>
+            <th scope="col"><i class="fa fa-map"></i> Direccion</th>
+            <th scope="col"><i class="fa fa-at"></i> Correo</th>
+            <th scope="col" class="text-right"><i class="fa fa-mobile"></i> Celular</th>
+            <th scope="col"><i class="fa fa-"></i> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of CLIENTES">
+            <th class="bold">
+                {{ i.nombre }}
+            </th>
+            <td>
+                {{i.calle}} #{{i.numero}} COL. {{i.colonia}}
+            </td>
+            <td>
+                {{ i.email }}
+            </td>
+            <td class="text-right">
+                {{ i.telefono }}
+            </td>
+            <td class="text-right ">
+                <!-- <button class="btn btn-outline-danger btn-sm" (click)="delete(i['_id'])"><i class="fa fa-trash"></i></button> -->
+                <button class="btn btn-outline-success btn-sm" (click)="edit(i)"><i class="fa fa-pen"></i></button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

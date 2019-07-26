@@ -1,0 +1,111 @@
+<table class="table table-light table-borderless" style="border-radius: 10px;">
+    <thead>
+        <th>Cantidad</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th class="text-right">Total</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of PRODUCTOS">
+            <td>{{ producto['cantidad'] }}</td>
+            <td>{{ producto['producto']['nombre'] }}</td>
+            <td>
+                {{ producto['producto']['precio'] | currency: 'MXN':'symbol':'0.2-2' }}
+            </td>
+            <td class="text-right">
+                {{ producto['cantidad'] * producto['producto']['precio'] | currency: 'MXN':'symbol':'0.2-2' }}
+            </td>
+            <td>
+                <button *ngIf="editable" class="btn btn-danger btn-sm" (click)="delete(producto['_id'])">
+          <i class="fa fa-trash"></i>
+        </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="card shadow shadow-lg--hover mt-5">
+    <div class="card-body">
+        <div class="d-flex px-3">
+            <div>
+                <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                    <i class="fa fa-dollar-sign"></i>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5 class="title text-success">Informacion de Venta</h5>
+
+                <ul class="list-unstyled mt-5">
+                    <li class="py-2">
+                        <div class="d-flex align-items-end">
+                            <div>
+                                <div class="badge badge-circle badge-success mr-3">
+                                    <i class="fa fa-dollar-sign"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">
+                                    Total:
+                                    <strong>{{
+                    TOTAL | currency: 'MXN':'symbol':'0.2-2'
+                  }}</strong>
+                                </h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="py-2">
+                        <div class="d-flex align-items-end">
+                            <div>
+                                <div class="badge badge-circle badge-success mr-3">
+                                    <i class="fa fa-hand-holding-usd"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">
+                                    Mano de Obra:
+                                    <strong>{{ MO | currency: 'MXN':'symbol':'0.2-2' }}</strong>
+                                </h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="py-2">
+                        <div class="d-flex align-items-end">
+                            <div>
+                                <div class="badge badge-circle badge-success mr-3">
+                                    <i class="fa fa-file-invoice-dollar"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Por pagar: {{ TOTAL - PAGADO | currency: 'MXN':'symbol':'0.2-2' }}</h6>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn btn-success btn-block" (click)="terminarServicio()" *ngIf="editable">
+          Marcar como servicio como finalizado
+        </button>
+                <button class="btn btn-primary btn-block" (click)="print()">
+          Ver Nota <i class="fa fa-print"></i>
+        </button>
+            </div>
+            <div class="col-md-6 pr-5" *ngIf="!editable">
+                <button class="btn btn-block btn-success" (click)="registrarPagoEfectivo()">Registrar pago en efectivo</button>
+                <button class="btn btn-block btn-success" (click)="registrarPagoConCheque()">Registrar pago con cheque</button>
+                <button class="btn btn-block btn-default" (click)="mostrarPago =! mostrarPago">Ver Pagos</button>
+                <!-- <button class="btn btn-block btn-default" (click)="comprobarEstadoDePago()">Comprobar</button> -->
+            </div>
+        </div>
+        <table class="table mt-5" *ngIf="mostrarPago" style="font-size: 110%;">
+            <thead>
+                <th>Fecha</th>
+                <th>Cantidad</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pago of PAGOS">
+                    <td>{{ pago['movimiento']['fecha'] | date:'short'}}</td>
+                    <td>{{ pago['movimiento']['cantidad'] | currency: 'MXN':'symbol':'0.2-2'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

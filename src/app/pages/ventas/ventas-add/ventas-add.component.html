@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-auto">
+        <div>
+            <div class="icon icon-shape bg-gradient-red rounded-circle text-white">
+                <i class="fa fa-database"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-9">
+        <h5 class="title text-warning">Refaccionaría</h5>
+    </div>
+</div>
+<div class="input-group input-group-alternative mt-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+    </div>
+    <input class="form-control form-control-alternative" placeholder="Buscar" type="text" #caja (keyup)="findByName(caja.value)">
+</div>
+<table class="table mt-3">
+    <thead>
+        <th>Nombre</th>
+        <th>Precio Compra</th>
+        <th>Precio Venta</th>
+        <th>Existencia</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of PRODUCTOS">
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.compra | currency: 'MXN':'symbol':'0.2-2' }}</td>
+            <td>{{ producto.precio | currency: 'MXN':'symbol':'0.2-2' }}</td>
+            <td>{{ producto.existencia }}</td>
+            <td class="text-right"><button class="btn btn-sm btn-success" (click)="addProducto(producto)"><i class="fa fa-check"></i></button></td>
+        </tr>
+    </tbody>
+</table>
+
+{{ venta | json }}

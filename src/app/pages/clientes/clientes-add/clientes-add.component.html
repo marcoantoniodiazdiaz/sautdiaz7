@@ -1,0 +1,111 @@
+<form style="padding: 25px;" (ngSubmit)="guardar(f)" #f="ngForm">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Nombre: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.nombre" name="nombre" pattern="[a-zA-Z\s]+">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Calle: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-map"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.calle" name="calle" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Numero: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-paperclip"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="number" [(ngModel)]="cliente.numero" name="numero" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Colonia: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-map-pin"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.colonia" name="colonia" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Email: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-at"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.email" name="email">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Telefono: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="number" [(ngModel)]="cliente.telefono" name="telefono" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ cliente | json }}
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9 justify-content-end">
+            <button class="btn btn-success btn-block" [disabled]="!f.valid"> <i class="fa fa-check fa-2x"></i></button>
+        </div>
+    </div>
+</form>

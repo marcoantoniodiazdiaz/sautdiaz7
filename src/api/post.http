@@ -1,0 +1,10 @@
+POST http://localhost:3000/proveedores
+
+Content-Type: application/json
+
+{
+    "nombre": "MAYASA",
+}
+
+###
+

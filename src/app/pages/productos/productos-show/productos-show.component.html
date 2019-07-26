@@ -1,0 +1,53 @@
+<div class="alert alert-default alert-dismissible fade show" role="alert">
+    <span class="alert-inner--icon"><i class="fa fa-dollar-sign"></i></span>
+    <span class="alert-inner--text">Precio <strong>venta</strong> aproximado del inventario: <strong>{{ precioVenta | currency: 'MXN':'symbol':'0.2-2' }}</strong></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="alert alert-default alert-dismissible fade show" role="alert">
+    <span class="alert-inner--icon"><i class="fa fa-dollar-sign"></i></span>
+    <span class="alert-inner--text">Precio <strong>compra</strong> aproximado del inventario: <strong>{{ precioCompra | currency: 'MXN':'symbol':'0.2-2' }}</strong></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<table class="table align-items-center table-flush">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Precio Compra</th>
+            <th>Existencia</th>
+            <th>Departamento</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of PRODUCTOS">
+            <th scope="row" [ngClass]="{ 'text-danger font-weight-bold': producto.existencia <= 0 }">
+                {{ producto.nombre }}
+            </th>
+            <td [ngClass]="{ 'text-danger font-weight-bold': producto.existencia <= 0 }">
+                {{ producto.precio | currency: 'MXN':'symbol':'0.2-2' }}
+            </td>
+            <td [ngClass]="{ 'text-danger font-weight-bold': producto.existencia <= 0 }">
+                {{ producto.compra | currency: 'MXN':'symbol':'0.2-2' }}
+            </td>
+            <td [ngClass]="{ 'text-danger font-weight-bold': producto.existencia <= 0 }">
+                {{ producto.existencia }}
+            </td>
+            <td>
+                {{ producto.departamento['nombre'] }}
+            </td>
+            <td class="text-right">
+                <button class="btn btn-outline-danger btn-sm" (click)="delete(producto['_id'])">
+          <i class="fa fa-trash"></i>
+        </button>
+                <button class="btn btn-outline-success btn-sm" (click)="edit(producto)">
+          <i class="fa fa-pen"></i>
+        </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,113 @@
+<form style="padding: 25px;" (ngSubmit)="guardar(f)" #f="ngForm">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Codigo: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-fingerprint"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="number" [(ngModel)]="producto.codigo" name="codigo" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Nombre: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-signature"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="producto.nombre" name="nombre">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Departamento: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-certificate"></i></span>
+                    </div>
+                    <select class="form-control form-control-alternative" [(ngModel)]="producto.departamento" name="departamento">
+                      <option [ngValue]="departamento['_id']" *ngFor="let departamento of DEPARTAMENTOS">{{ departamento.nombre }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Precio: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="number" [(ngModel)]="producto.precio" name="precio">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Precio Compra: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="number" [(ngModel)]="producto.compra" name="compra">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Existencia: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-cubes"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="number" [(ngModel)]="producto.existencia" name="existencia" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ producto | json }}
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9 justify-content-end">
+            <button class="btn btn-success btn-block"> <i class="fa fa-check fa-2x"></i></button>
+        </div>
+    </div>
+</form>

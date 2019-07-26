@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-md-auto">
+        <div>
+            <div class="icon icon-shape bg-gradient-red rounded-circle text-white">
+                <i class="fa fa-database"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-9">
+        <h5 class="title text-warning">Producto</h5>
+    </div>
+</div>
+<form style="padding: 25px;" (ngSubmit)="guardar(f)" #f="ngForm">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Producto / Servicio:
+        </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-cogs"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="producto.nombre" name="nombre" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Precio Compra:
+        </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-dollar-sign"></i
+            ></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="producto.compra" name="compra" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Precio Venta:
+        </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-dollar-sign"></i
+            ></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="producto.precio" name="precio" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Mano de Obra:
+        </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <label class="custom-toggle">
+        <input type="checkbox" [(ngModel)]="ManoObra" name="manoobra" />
+        <span class="custom-toggle-slider rounded-circle"></span>
+      </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <button [disabled]="!f.valid" class="btn btn-success btn-block" type="submit">
+        <i class="fa fa-check fa-2x"></i>
+      </button>
+        </div>
+    </div>
+</form>
+
+{{ producto | json }} {{ venta | json }}

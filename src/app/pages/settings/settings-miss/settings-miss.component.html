@@ -1,0 +1,31 @@
+<div class="row p-2">
+    <div class="col-3">
+        <h5 class="mb-0">Idioma: </h5>
+    </div>
+    <div class="col-9">
+        <select class="form-control-alternative form-control">
+        <option value="0">Español</option>
+        <option value="1">Ingles</option>
+      </select>
+    </div>
+</div>
+<div class="row p-2">
+    <div class="col-4">
+        <h5 class="mb-0">Peticion directa a Backend: </h5>
+        <form (ngSubmit)="peticionexec(f)" #f="ngForm">
+            <div class="form-group">
+                <label>URL</label>
+                <input type="text" class="form-control form-control-alternative form-control-sm" [(ngModel)]="peticion.url" name="url">
+            </div>
+            <div class="form-group">
+                <label>Llave SSL</label>
+                <input type="password" class="form-control form-control-alternative" [(ngModel)]="peticion.llave" name="llave">
+            </div>
+            <button class="btn btn-sm btn-primary" type="submit">Ok</button>
+        </form>
+    </div>
+    <div class="col-8">
+        {{ peticion.resultado | json }}
+    </div>
+</div>
+<br>

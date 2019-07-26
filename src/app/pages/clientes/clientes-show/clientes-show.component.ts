@@ -1,0 +1,52 @@
+import { Component, OnInit } from '@angular/core';
+import { ClienteModel } from '../../../../models/clientes.model';
+import { ClientesService } from '../../../services/clientes.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-clientes-show',
+  templateUrl: './clientes-show.component.html',
+  styles: []
+})
+export class ClientesShowComponent implements OnInit {
+
+  CLIENTES: ClienteModel[] = [];
+
+  constructor(private clientesService: ClientesService, private router: Router) { }
+
+  ngOnInit() {
+    this.getClientes();
+  }
+
+  edit(cliente: ClienteModel) {
+    this.clientesService.cliente = cliente;
+    this.router.navigateByUrl('/clientes/add/edit');
+  }
+
+  delete(id: string) {
+    Swal.fire({
+      title: 'Procesando',
+      text: 'Guardando informacion',
+      type: 'info',
+      allowOutsideClick: false
+    });
+    Swal.showLoading();
+
+    this.clientesService.delete(id).then(ok => {
+      Swal.fire({
+        title: 'Exito!',
+        text: 'Cliente borrado',
+        type: 'success'
+      });
+      this.getClientes();
+    });
+  }
+
+  getClientes() {
+    this.clientesService.get().subscribe((data: any) => {
+      this.CLIENTES = data['data'];
+    });
+  }
+
+}

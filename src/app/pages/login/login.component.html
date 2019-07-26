@@ -1,0 +1,10 @@
+<div class="card text-center">
+    <div class="card-body">
+        <form class="form-signin" (ngSubmit)="guardar(f)" #f="ngForm">
+            <h1 class="h3 mb-3 font-weight-normal">Administrador</h1>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Telefono" required [(ngModel)]="login.telefono" name="telefono">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required [(ngModel)]="login.password" name="password">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Ok</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,278 @@
+<nav class="navbar navbar-expand-lg navbar-p navbar-dark bg-gradient-dark rounded">
+    <div class="container">
+        <a class="navbar-brand" href="#">Orden de Servicio</a>
+        <div class="collapse navbar-collapse" id="nav-inner-success">
+            <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link nav-link-icon">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container mt-2">
+    <div class="card shadow shadow-lg--hover mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-auto">
+                    <div>
+                        <div class="icon icon-shape bg-gradient-red rounded-circle text-white">
+                            <i class="fa fa-paperclip"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <h5 class="title text-warning">Orden de Servicio</h5>
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card shadow">
+                            <div class="card-header border-0 bg-gradient-red">
+                                <h5 class="mb-0 text-white">Agregar Cliente</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col-12">
+                                        <button class="btn btn-secondary btn-sm text-center" *ngIf="!VerAgregarCliente" (click)="VerAgregarCliente =! VerAgregarCliente">Desplegar Panel <i class="fa fa-arrow-down"></i></button>
+                                    </div>
+                                </div>
+                                <form *ngIf="VerAgregarCliente" (ngSubmit)="guardarCliente(f)" #f="ngForm">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nombre: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.nombre" name="nombre">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Calle: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-map"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.calle" name="calle">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Numero: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-paperclip"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="number" [(ngModel)]="cliente.numero" name="numero">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Colonia: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-map-pin"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.colonia" name="colonia">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Email: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-at"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.email" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Telefono: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.telefono" name="telefono">
+                                        </div>
+                                    </div>
+                                    {{ cliente | json }}
+                                    <button class="btn btn-success btn-block" type="submit"><i class="fa fa-check fa-2x"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card shadow">
+                            <div class="card-header border-0 bg-gradient-red">
+                                <h5 class="mb-0 text-white">Agregar Vehiculo</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col-12">
+                                        <button class="btn btn-secondary btn-sm text-center" *ngIf="!VerAgregarVehiculo" (click)="VerAgregarVehiculo =! VerAgregarVehiculo">Desplegar Panel <i class="fa fa-arrow-down"></i></button>
+                                    </div>
+                                </div>
+                                <form *ngIf="VerAgregarVehiculo" (ngSubmit)="guardarVehiculo(f)" #f="ngForm">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Placa: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-square"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.placa" name="placa">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Marca: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-share-square"></i></span>
+                                            </div>
+                                            <select class="form-control form-control-alternative" [(ngModel)]="vehiculo.marca" name="marca" required>
+                                                <option *ngFor="let marca of MARCAS" [ngValue]="marca['_id']">{{ marca.nombre }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Submarca: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-shapes"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.submarca" name="submarca">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Color: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" [(colorPicker)]="vehiculo.color" [cpPosition]="'left'" [style.background]="vehiculo.color" [cpPresetColors]="['#ff0000', '#ff8e00', '#fffb00', '#13ff00', '#00fff4', '#003bff', '#f700ff', '#000000', '#ffffff']"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Modelo: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="number" [(ngModel)]="vehiculo.modelo" name="modelo">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Motor: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-sort-numeric-down"></i></span>
+                                            </div>
+                                            <input class="form-control form-control-alternative" type="number" [(ngModel)]="vehiculo.motor" name="motor">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Cliente: </label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                            </div>
+                                            <select class="form-control form-control-alternative" [(ngModel)]="vehiculo.cliente" name="cliente" required>
+                                                <option *ngFor="let cliente of CLIENTES" [ngValue]="cliente['_id']">{{ cliente.nombre }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{ vehiculo | json }}
+                                    <button class="btn btn-success btn-block" type="submit"><i class="fa fa-2x fa-check"></i> </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="card shadow">
+                    <div class="card-header border-0 bg-gradient-red">
+                        <h5 class="mb-0 text-white">Crear Servicio</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <form>
+                            <div class="form-group">
+                                <label class="form-control-label">Trabajador: </label>
+                                <div class="input-group input-group-alternative mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-tools"></i></span>
+                                    </div>
+                                    <select class="form-control form-control-alternative" [(ngModel)]="servicio.trabajador" name="trabajador" required>
+                                        <option [ngValue]="trabajador['_id']" *ngFor="let trabajador of TRABAJADORES">{{ trabajador.nombre }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card shadow">
+                                <div class="card-header border-0 bg-gradient-red">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h5 class="mb-0 text-white">Lista de Clientes</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive" style="height: 400px; overflow-y: scroll;">
+                                    <!-- Projects table -->
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control form-control-alternative" type="text" placeholder="Buscar" #caja (keyup)=findCliente(caja.value)>
+                                    </div>
+                                    <div class="p-2 pt-3 ">
+                                        <table class="table align-items-center table-flush ">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col "><i class="fa fa-user "></i> Nombre</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let cliente of CLIENTES ">
+                                                    <th scope="row ">
+                                                        {{ cliente.nombre }}
+                                                    </th>
+                                                    <td class="text-right ">
+                                                        <button class="btn btn-sm btn-outline-success btn-block " (click)="seleccionaCliente(cliente[ '_id']) "><i class="fa fa-check "></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row row-grid ">
+                                <div class="col-lg-4 text-center " *ngFor="let vehiculo of VEHICULOS ">
+                                    <div class="card shadow border-0 ">
+                                        <img src="assets/img/logos/{{ vehiculo.marca[ 'nombre'] }}.jpg " class="card-img-top mt-4 " alt=" ">
+                                        <div class="card-body py-5 ">
+                                            <span class="badge bg-gradient-dark text-white " style="font-size: 200%; padding: 20px; ">
+                                                {{ vehiculo.placa }}
+                                            </span>
+                                            <h6 class="text-warning pt-2 ">{{ vehiculo.submarca }}</h6>
+                                            <div>
+                                                <div [ngStyle]="{ 'backgroundColor': vehiculo.color} " style="border-radius: 40px; height: 20px; width: 100%; "></div>
+                                                <br>
+                                                <span class="badge badge-pill badge-warning ">{{ vehiculo.modelo }}</span>&nbsp;
+                                                <span class="badge badge-pill badge-warning ">{{ vehiculo.motor }}</span>
+                                            </div>
+                                            <button class="btn btn-warning mt-4 btn-block " (click)="seleccionaVehiculo(vehiculo[ '_id']) "><i class="fa fa-check "></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        {{ servicio | json }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>

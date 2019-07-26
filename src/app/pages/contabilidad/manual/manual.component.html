@@ -1,0 +1,40 @@
+<h5>Cuentas Disponibles</h5>
+
+<button class="btn btn-icon btn-3 btn-default" type="button" (click)="movimiento(0)">
+  <span class="btn-inner--icon"><i class="fa fa-briefcase"></i></span>
+
+  <span class="btn-inner--text">Maletín</span>
+</button>
+
+<button class="btn btn-icon btn-3 btn-default" type="button" (click)="movimiento(1)">
+  <span class="btn-inner--icon"><i class="fa fa-money-check"></i></span>
+
+  <span class="btn-inner--text">Bancos</span>
+</button>
+
+<button class="btn btn-icon btn-3 btn-default" type="button" (click)="movimiento(3)" [disabled]="!activated">
+  <span class="btn-inner--icon"><i class="fa fa-user"></i></span>
+
+  <span class="btn-inner--text">Clientes</span>
+</button>
+
+<button class="btn btn-icon btn-3 btn-default" type="button" (click)="movimiento(2)" [disabled]="!activated">
+  <span class="btn-inner--icon"><i class="fa fa-box"></i></span>
+
+  <span class="btn-inner--text">Proveedores</span>
+</button>
+
+<button class="btn btn-icon btn-3 btn-default" type="button" (click)="movimiento(4)" [disabled]="!activated">
+  <span class="btn-inner--icon"><i class="fa fa-truck-loading"></i></span>
+
+  <span class="btn-inner--text">Mercancías</span>
+</button>
+
+<button class="btn btn-icon btn-3 btn-slack" type="button" (click)="unlock()">
+  <span class="btn-inner--icon"><i class="fa fa-lock"></i></span>
+
+  <span class="btn-inner--text">Desbloquear</span>
+</button>
+
+<br />
+<br />

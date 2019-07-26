@@ -1,0 +1,96 @@
+<div class="card" *ngFor="let servicio of SERVICIO" style="min-height: 500px;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-3">
+                <img src="assets/img/logos/logonew.jpg" style="width: 80%;" />
+            </div>
+            <div class="col-5 text-center">
+                <h6><strong>SERVICIO AUTOMOTRIZ DIAZ</strong></h6>
+                <h6>MOCTEZUMA #729 COL. FLORIDA</h6>
+                <h6>OCOTLAN, JALISCO. MEXICO</h6>
+                <h6>TEL: <strong>39223006</strong> CEL: <strong>3316133392</strong></h6>
+            </div>
+            <div class="col-4">
+                <table class="table table-sm" style="border-radius: 10px;" id="contentToConvert">
+                    <thead class="thead-dark">
+                        <th>Informacion del Servicio</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Servicio: <strong>{{ servicio['_id'] }}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Llegada:
+                                <strong>{{ servicio['fecha'] | date: 'short' }}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Salida: <strong>{{ dateNow | date: 'short' }}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- <img src="assets/img/logos/${servicio.}.jpg" width="100%"> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div style="height: 1000px;">
+            <table class="table">
+                <thead>
+                    <th>Cantidad</th>
+                    <th>Nombre</th>
+                    <th>Precio Unitario</th>
+                    <th class="text-right">Total</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of VENTA">
+                        <td>{{ producto.cantidad }}</td>
+                        <td>{{ producto['producto']['nombre'] }}</td>
+                        <td>
+                            {{ producto['producto']['precio'] | currency: 'MXN':'symbol':'0.2-2' }}
+                        </td>
+                        <td class="text-right">
+                            <strong>{{
+                producto['cantidad'] * producto['producto']['precio']
+                  | currency: 'MXN':'symbol':'0.2-2'
+              }}</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-9">
+                <div id="placeHolder"></div>
+            </div>
+            <div class="col-md-3 text-right">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                SUBTOTAL:
+                                <strong>{{ total | currency: 'MXN':'symbol':'0.2-2' }}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                TOTAL:
+                                <strong>{{ total | currency: 'MXN':'symbol':'0.2-2' }}</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

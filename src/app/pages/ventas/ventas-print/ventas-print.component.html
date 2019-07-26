@@ -1,0 +1,41 @@
+<div class="card" *ngFor="let servicio of SERVICIO" id="contentToConvert">
+    <div style="height: 100px;"></div>
+    <div class="card-body pt-3">
+        <div class="row">
+            <div class="col-3">
+                <img src="assets/img/logos/logonew.jpg" style="width: 80%;" />
+            </div>
+            <div class="col-5 text-center">
+                <h6><strong>SERVICIO AUTOMOTRIZ DIAZ</strong></h6>
+                <h6>MOCTEZUMA #729 COL. FLORIDA</h6>
+                <h6>OCOTLAN, JALISCO. MEXICO</h6>
+                <h6>TEL: <strong>39223006</strong> CEL: <strong>3316133392</strong></h6>
+            </div>
+            <div class="col-4">
+                <table class="table table-sm" style="border-radius: 10px;">
+                    <thead class="thead-dark">
+                        <th>Informacion del Servicio</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Servicio: <strong>{{ servicio['_id'] }}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Llegada:
+                                <strong>{{ servicio['fecha'] | date: 'short' }}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Salida: <strong>{{ dateNow | date: 'short' }}</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

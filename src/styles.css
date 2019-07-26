@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+.text-proto {
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-p {
+    padding: 0rem;
+}
+
+.navbar-total {
+    padding: 0.2rem;
+}
+
+thead {
+    color: #5e5e5e;
+}
+
+td,
+th,
+label {
+    color: #5e5e5e;
+}
+
+table {
+    font-size: 80%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+body {
+    background-image: url('assets/img/backgrounds/back1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.nav-link-inner--text {
+    font-size: 85%;
+}
+
+li.active>a>span {
+    font-weight: bold;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

@@ -1,0 +1,28 @@
+<table class="table align-items-center table-flush">
+    <thead>
+        <tr>
+            <th scope="col"><i class="fa fa-check-square"></i> Placa</th>
+            <th scope="col"><i class="fa fa-car"></i> Coche</th>
+            <th scope="col"><i class="fa fa-user"></i> Cliente</th>
+            <th scope="col"><i class="fa fa-paint-brush"></i> Color</th>
+            <th scope="col"><i class="fa fa-"></i> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vehiculo of VEHICULOS">
+            <th scope="row">{{ vehiculo.placa }}</th>
+            <td>{{ vehiculo.marca['nombre'] }} {{ vehiculo.submarca }}</td>
+            <td>{{ vehiculo.cliente['nombre'] }}</td>
+            <td>
+                <div style="border-radius: 20px; width: 100%; height: 20px;" [ngStyle]="{'backgroundColor': vehiculo.color}">
+
+                </div>
+            </td>
+            <td class="text-right">
+                <!-- <button class="btn btn-outline-danger btn-sm" (click)="delete(vehiculo['_id'])"><i class="fa fa-trash"></i></button> -->
+                <button class="btn btn-outline-success btn-sm" (click)="edit(vehiculo)"><i class="fa fa-pen"></i></button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

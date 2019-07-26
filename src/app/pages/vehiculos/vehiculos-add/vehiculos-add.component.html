@@ -1,0 +1,127 @@
+<form (ngSubmit)="guardar(f)" #f="ngForm" style="padding: 25px;">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Placa: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-square"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.placa" name="placa">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Marca: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-share-square"></i></span>
+                    </div>
+                    <select class="form-control form-control-alternative" [(ngModel)]="vehiculo.marca" name="marca" required>
+                                <option *ngFor="let marca of MARCAS" [ngValue]="marca['_id']">{{ marca.nombre }}</option>
+                            </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Subamarca: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-shapes"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.submarca" name="submarca">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Color: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" [(colorPicker)]="vehiculo.color" [cpPosition]="'left'" [style.background]="vehiculo.color" [cpPresetColors]="['#ff0000', '#ff8e00', '#fffb00', '#13ff00', '#00fff4', '#003bff', '#f700ff', '#000000', '#ffffff']"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Modelo: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.modelo" name="modelo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Motor: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-sort-numeric-down"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.motor" name="motor">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="form-control-label" for="input-username">Cliente: </label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <select class="form-control form-control-alternative" [(ngModel)]="vehiculo.cliente" name="cliente" required>
+                            <option *ngFor="let cliente of CLIENTES" [ngValue]="cliente['_id']">{{ cliente.nombre }}</option>
+                        </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-success btn-block" type="submit" [disabled]="!f.valid"><i class="fa fa-check fa-2x"></i></button> {{ vehiculo | json }}
+</form>

@@ -1,0 +1,13 @@
+<h5 class="mb-0 p-2">
+    Marcas: </h5>
+
+<div class="row row-grid pt-2">
+    <div class="col-lg-6 p-2" *ngFor="let marca of MARCAS">
+        <div class="card shadow border-0">
+            <div class="card-body py-5">
+                <img src="assets/img/logos/{{ marca.nombre }}.jpg" style="width: 100%;">
+                <h4 class="text-primary text-uppercase pt-5 text-danger">{{ marca.nombre }}</h4>
+            </div>
+        </div>
+    </div>
+</div>
