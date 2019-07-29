@@ -7,8 +7,6 @@ import { DatabaseService } from './database.service';
   providedIn: 'root'
 })
 export class ClientesService {
-  private url = 'http://localhost:3000';
-
   cliente = new ClienteModel();
 
   constructor(private http: HttpClient, private database: DatabaseService) {}

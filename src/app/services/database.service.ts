@@ -5,8 +5,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DatabaseService {
-  // private url = 'http://localhost:3000';
-  private url = 'https://sautdiaz.herokuapp.com';
+  private url = 'http://localhost:3000';
+  // private url = 'https://sautdiaz.herokuapp.com';
 
   constructor(private http: HttpClient) {}
 
