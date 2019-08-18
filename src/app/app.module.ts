@@ -40,13 +40,15 @@ import { ProductosProveedorComponent } from './pages/productos/productos-proveed
 import { ManualComponent } from './pages/contabilidad/manual/manual.component';
 import { VmostradorComponent } from './pages/vmostrador/vmostrador.component';
 import { VmostradorProductosComponent } from './pages/vmostrador/vmostrador-productos/vmostrador-productos.component';
-// import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from '../environments/environment.prod';
 
-// ANGULAR MATERIAL
-// import { MatDatepickerModule } from '@angular/material/datepicker';
-// import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatNativeDateModule } from '@angular/material/core';
-// import { MatInputModule } from '@ng-bootstrap/ng-bootstrap';
+// SOCKET
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ChatComponent } from './pages/chat/chat.component';
+const config: SocketIoConfig = {
+  url: environment.database,
+  options: {}
+};
 
 @NgModule({
   declarations: [
@@ -81,7 +83,8 @@ import { VmostradorProductosComponent } from './pages/vmostrador/vmostrador-prod
     ProductosProveedorComponent,
     ManualComponent,
     VmostradorComponent,
-    VmostradorProductosComponent
+    VmostradorProductosComponent,
+    ChatComponent
   ],
   imports: [
     ColorPickerModule,
@@ -91,18 +94,9 @@ import { VmostradorProductosComponent } from './pages/vmostrador/vmostrador-prod
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
-    // NgbModule,
-    // NgbDatepicker,
-    // NgbDatepickerService,
-    // NgbDatepickerModule
-    // NgbPaginationModule,
-    // MATERIAL
-    // MatDatepickerModule,
-    // MatFormFieldModule,
-    // MatNativeDateModule,
-    // MatInputModule
-    //
+    BrowserAnimationsModule,
+    // SOCKETS,
+    SocketIoModule.forRoot(config)
   ],
   exports: [
     // MATERIAL

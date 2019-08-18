@@ -3,6 +3,7 @@ import { ClienteModel } from '../../../../models/clientes.model';
 import { ClientesService } from '../../../services/clientes.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NotificationsService } from '../../../services/notifications.service';
 
 @Component({
   selector: 'app-clientes-show',
@@ -10,10 +11,15 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class ClientesShowComponent implements OnInit {
-
   CLIENTES: ClienteModel[] = [];
 
-  constructor(private clientesService: ClientesService, private router: Router) { }
+  loading = true;
+
+  constructor(
+    private clientesService: ClientesService,
+    private router: Router,
+    private notificationService: NotificationsService
+  ) {}
 
   ngOnInit() {
     this.getClientes();
@@ -46,7 +52,22 @@ export class ClientesShowComponent implements OnInit {
   getClientes() {
     this.clientesService.get().subscribe((data: any) => {
       this.CLIENTES = data['data'];
+      this.loading = false;
     });
   }
 
+  sendNotification(client: string) {
+    Swal.fire({
+      text: 'Enviar notificacion a cliente',
+      input: 'text',
+      type: 'info'
+    }).then(result => {
+      if (result.value) {
+        this.notificationService.enviarNotificacion({
+          message: result.value,
+          client: client
+        });
+      }
+    });
+  }
 }

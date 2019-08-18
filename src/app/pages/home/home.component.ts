@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MostradorService } from 'src/app/services/mostrador.service';
+import { WebSocketService } from '../../services/web-socket.service';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   constructor(
     private router: Router,
-    private mostradorService: MostradorService
+    private mostradorService: MostradorService,
+    public webSocketService: WebSocketService,
+    private chatService: ChatService
   ) {}
-
-  ngOnInit() {}
 
   irServicios() {
     this.mostradorService.post().then(resp => {

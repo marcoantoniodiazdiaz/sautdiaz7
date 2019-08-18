@@ -44,7 +44,7 @@ export class VentasAddComponent implements OnInit {
   }
 
   getProductos() {
-    this.productosService.get().subscribe(data => {
+    this.productosService.findByName('_').subscribe(data => {
       this.PRODUCTOS = data['data'];
     });
   }

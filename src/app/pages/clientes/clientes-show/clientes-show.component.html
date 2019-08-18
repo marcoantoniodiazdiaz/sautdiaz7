@@ -1,4 +1,9 @@
-<table class="table align-items-center table-flush">
+<div class="d-flex justify-content-center mt-1" *ngIf="loading">
+    <div class="spinner-border text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<table class="table align-items-center table-flush table-dark" *ngIf="!loading">
     <thead>
         <tr>
             <th scope="col"><i class="fa fa-user"></i> Nombre</th>
@@ -25,6 +30,7 @@
             <td class="text-right ">
                 <!-- <button class="btn btn-outline-danger btn-sm" (click)="delete(i['_id'])"><i class="fa fa-trash"></i></button> -->
                 <button class="btn btn-outline-success btn-sm" (click)="edit(i)"><i class="fa fa-pen"></i></button>
+                <button class="btn btn-outline-neutral btn-sm" (click)="sendNotification(i['_id'])"><i class="fa fa-flag"></i></button>
             </td>
         </tr>
 

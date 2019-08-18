@@ -11,14 +11,18 @@ import Swal from 'sweetalert2';
   styles: []
 })
 export class VehiculosShowComponent implements OnInit {
-
   VEHICULOS: VehiculosModel[] = [];
+  loading = true;
 
-  constructor (private vehiculosService: VehiculosService, private marcasService: MarcasService, private router: Router) {
+  constructor(
+    private vehiculosService: VehiculosService,
+    private marcasService: MarcasService,
+    private router: Router
+  ) {
     this.getVehiculos();
   }
 
-  ngOnInit () {}
+  ngOnInit() {}
 
   edit(vehiculo: VehiculosModel) {
     this.vehiculosService.vehiculo = vehiculo;
@@ -47,7 +51,7 @@ export class VehiculosShowComponent implements OnInit {
   getVehiculos() {
     this.vehiculosService.get().subscribe(data => {
       this.VEHICULOS = data['data'];
+      this.loading = false;
     });
   }
-
 }

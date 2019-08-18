@@ -9,14 +9,14 @@ import { ServiciosService } from 'src/app/services/servicios.service';
 export class ServiciosShowComponent implements OnInit {
   SERVICIOS: any[] = [];
 
+  loading = true;
+
   constructor(private serviciosService: ServiciosService) {
     this.serviciosService.get().subscribe(data => {
       this.SERVICIOS = data['data'];
-      this.comprobarIntegridad();
+      this.loading = false;
     });
   }
-
-  comprobarIntegridad() {}
 
   ngOnInit() {}
 }

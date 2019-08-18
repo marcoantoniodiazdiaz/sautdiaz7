@@ -25,7 +25,7 @@ thead {
 td,
 th,
 label {
-    color: #5e5e5e;
+    color: white;
 }
 
 table {
@@ -37,7 +37,7 @@ table {
 }
 
 body {
-    background-image: url('assets/img/backgrounds/back1.jpg');
+    background-image: url('assets/img/backgrounds/back2.jpg');
     background-size: cover;
     background-attachment: fixed;
 }

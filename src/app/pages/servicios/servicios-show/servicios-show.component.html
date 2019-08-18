@@ -1,4 +1,9 @@
-<table class="table align-items-center table-flush">
+<div class="d-flex justify-content-center mt-1" *ngIf="loading">
+    <div class="spinner-border text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<table class="table align-items-center table-flush table-dark" *ngIf="!loading">
     <thead>
         <tr>
             <th scope="col"> <i class="fa fa-car"></i> Vehiculo</th>
@@ -34,7 +39,8 @@
               "></i>
             </td>
             <td class="text-right">
-                <a [routerLink]="['/venta', servicio['_id']]" class="btn btn-sm btn-outline-primary"><i class="fa fa-eye"></i></a>
+                <a [routerLink]="['/venta', servicio['_id']]" class="btn btn-sm btn-outline-neutral"><i class="fa fa-eye"></i></a>
+                <a [routerLink]="['/chat', servicio['_id']]" class="btn btn-outline-info btn-sm"><i class="fa fa-comment"></i></a>
             </td>
         </tr>
     </tbody>

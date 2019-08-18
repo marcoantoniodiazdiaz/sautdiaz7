@@ -15,6 +15,10 @@ export class ClientesService {
     return this.database.get('/clientes');
   }
 
+  getById(id: string) {
+    return this.database.get(`/clientes/${id}`);
+  }
+
   findByNombre(nombre: string) {
     return this.database.get(`/clientes/nombre/${nombre}`);
   }

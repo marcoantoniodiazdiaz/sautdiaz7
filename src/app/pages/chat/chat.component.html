@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-p navbar-light bg-gradient-white rounded">
+    <div class="container">
+        <a class="navbar-brand" href="#">SESIÓN INICIADA COMO: {{ webSocketService.usuario.nombre }}</a
+    >
+    <div class="collapse navbar-collapse" id="nav-inner-success">
+      <ul class="navbar-nav ml-lg-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link nav-link-icon">
+            <i class="fa fa-eye"></i>
+          </a>
+        </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+<div class="container mt-2">
+    <div class="card shadow shadow-lg--hover mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-auto">
+                    <div>
+                        <div class="icon icon-shape bg-gradient-info rounded-circle text-white">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <h5 class="title text-info">{{ vehiculo }}</h5>
+                    <span style="font-size: 80%;">EN LINEA CON: {{ cliente }}</span>
+                </div>
+            </div>
+            <div class="mt-3" style="height: 500px; overflow-y: scroll;" id="box">
+                <li class="list-group-item bg-gradient-dark text-white" *ngFor="let message of MESSAGES">
+                    <span class="text-info">{{ message['from'] }}</span>
+                    <br />
+                    <span style="font-size: 80%;">{{ message['body'] }}</span>
+                    <br />
+                    <div class="text-right" style="width: 100%; font-size: 80%;">
+                        <span>{{ message['date'] | date: 'short' }}</span>
+                    </div>
+                </li>
+                <!-- <li class="list-group-item bg-gradient-white text-darker">
+                    <span>Hola como estas</span>
+                    <br>
+                    <div class="text-right" style="width: 100%; font-size: 80%;">
+                        <span>8:55</span>
+                    </div>
+                </li> -->
+            </div>
+            <br />
+            <form (ngSubmit)="send(f)" #f="ngForm">
+                <div class="form-group">
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-comment"></i
+              ></span>
+                        </div>
+                        <input class="form-control" placeholder="Escribir mensaje..." type="text" [(ngModel)]="textMessage" name="textMessage" autocomplete="off" autofocus />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<br />

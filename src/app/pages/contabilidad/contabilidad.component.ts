@@ -75,10 +75,11 @@ export class ContabilidadComponent implements OnInit {
   }
 
   estandarizarCuentas() {
+    let cont = 0;
     this.movimientos.forEach(movimiento => {
       switch (movimiento.cuenta) {
         case '0':
-          movimiento.cuenta = 'CAJAS';
+          movimiento.cuenta = 'MALETÍN';
           break;
         case '1':
           movimiento.cuenta = 'BANCOS';
@@ -93,6 +94,11 @@ export class ContabilidadComponent implements OnInit {
           movimiento.cuenta = 'MERCANCIAS';
           break;
       }
+      cont++;
+    });
+
+    this.movimientos = this.movimientos.filter(mov => {
+      return !mov['hidden'];
     });
   }
 }

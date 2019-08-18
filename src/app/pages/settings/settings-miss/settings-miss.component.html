@@ -22,10 +22,22 @@
                 <input type="password" class="form-control form-control-alternative" [(ngModel)]="peticion.llave" name="llave">
             </div>
             <button class="btn btn-sm btn-primary" type="submit">Ok</button>
+            <button class="btn btn-sm btn-default" (click)="superuser()">Superuser</button>
         </form>
     </div>
     <div class="col-8">
         {{ peticion.resultado | json }}
     </div>
+</div>
+<br>
+<div *ngIf="admin">
+    <h5>ADMIN</h5>
+    <span>
+    <button class="btn btn-pinterest" (click)="movimiento(0)">MALETÍN</button>
+    <button class="btn btn-pinterest" (click)="movimiento(1)">BANCOS</button>
+    <button class="btn btn-pinterest" (click)="movimiento(2)">CLIENTES</button>
+    <button class="btn btn-pinterest" (click)="movimiento(3)">PROVEEDORES</button>
+    <button class="btn btn-pinterest" (click)="movimiento(4)">MERCANCÍAS</button>
+</span>
 </div>
 <br>

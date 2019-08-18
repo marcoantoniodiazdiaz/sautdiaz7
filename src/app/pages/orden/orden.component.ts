@@ -160,10 +160,8 @@ export class OrdenComponent implements OnInit {
 
         console.log(this.servicio.trabajador);
 
-        if (
-          this.servicio.trabajador === '' ||
-          this.servicio.trabajador === null
-        ) {
+        if (!this.servicio.trabajador) {
+          console.log('Entre!');
           Swal.fire({
             title: 'Error',
             text: 'Algunos campos son obligatorios',

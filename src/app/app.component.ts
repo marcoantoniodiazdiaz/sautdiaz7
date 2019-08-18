@@ -10,6 +10,9 @@ import {
 import { Router, NavigationEnd } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
+import { WebSocketService } from './services/web-socket.service';
+import { ChatComponent } from './pages/chat/chat.component';
+import { ChatService } from './services/chat.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +22,14 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 export class AppComponent implements OnInit {
   //
 
-  constructor() {}
+  constructor(
+    public wsSocketService: WebSocketService,
+    public chatComponent: ChatService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.chatComponent.getMessagesPrivate().subscribe(msg => {
+      console.log(msg);
+    });
+  }
 }

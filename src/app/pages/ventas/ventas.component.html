@@ -18,13 +18,13 @@
             <div class="row">
                 <div class="col-md-auto">
                     <div>
-                        <div class="icon icon-shape bg-gradient-red rounded-circle text-white">
+                        <div class="icon icon-shape bg-gradient-info rounded-circle text-white">
                             <i class="fa fa-dollar-sign"></i>
                         </div>
                     </div>
                 </div>
                 <div class="col-9">
-                    <h5 class="title text-warning">Venta</h5>
+                    <h5 class="title text-info">Venta</h5>
                 </div>
             </div>
             <div class="mt-3">
@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="card shadow shadow-lg--hover mt-5" *ngIf="editable">
+    <div class="card shadow shadow-lg--hover mt-5 bg-dark" *ngIf="editable">
         <div class="card-body">
             <div class="mt-3">
                 <app-ventas-add [servicio]="servicio" (ActualizaProductos)="ActualizaProductos()"></app-ventas-add>
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="card shadow shadow-lg--hover mt-5" *ngIf="editable">
+    <div class="card shadow shadow-lg--hover mt-5 bg-dark" *ngIf="editable">
         <div class="card-body">
             <div class="mt-3">
                 <app-ventas-nolistado [servicio]="servicio" (ActualizaProductos)="ActualizaProductos()"></app-ventas-nolistado>

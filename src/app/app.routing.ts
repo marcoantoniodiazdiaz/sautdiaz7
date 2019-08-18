@@ -27,6 +27,7 @@ import { ContabilidadComponent } from './pages/contabilidad/contabilidad.compone
 import { ProductosProveedorComponent } from './pages/productos/productos-proveedor/productos-proveedor.component';
 import { ManualComponent } from './pages/contabilidad/manual/manual.component';
 import { VmostradorComponent } from './pages/vmostrador/vmostrador.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -34,6 +35,11 @@ const routes: Routes = [
   {
     path: 'con/:servicio',
     component: HtmltopdfComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'chat/:servicio',
+    component: ChatComponent,
     canActivate: [AuthGuard]
   },
   {
