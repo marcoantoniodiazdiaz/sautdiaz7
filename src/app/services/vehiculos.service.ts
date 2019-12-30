@@ -23,6 +23,10 @@ export class VehiculosService {
     return this.database.get(`/vehiculos/cliente/${id}`);
   }
 
+  findByTerm(term: string) {
+    return this.database.get(`/vehiculos/find/${ term }`);
+  }
+
   post(vehiculo: VehiculosModel) {
     return this.database.post(`/vehiculos`, vehiculo);
   }

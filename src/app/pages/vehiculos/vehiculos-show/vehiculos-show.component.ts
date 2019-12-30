@@ -16,7 +16,7 @@ export class VehiculosShowComponent implements OnInit {
 
   constructor(
     private vehiculosService: VehiculosService,
-    private marcasService: MarcasService,
+    // private marcasService: MarcasService,
     private router: Router
   ) {
     this.getVehiculos();
@@ -52,6 +52,18 @@ export class VehiculosShowComponent implements OnInit {
     this.vehiculosService.get().subscribe(data => {
       this.VEHICULOS = data['data'];
       this.loading = false;
+    });
+  }
+
+  find(term: string) {
+
+    if (term === null || term === '') {
+      this.getVehiculos();
+      return;
+    }
+
+    this.vehiculosService.findByTerm(term).subscribe((data: any) => {
+      this.VEHICULOS = data['data'];
     });
   }
 }
