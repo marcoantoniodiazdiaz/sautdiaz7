@@ -28,6 +28,7 @@ import { ProductosProveedorComponent } from './pages/productos/productos-proveed
 import { ManualComponent } from './pages/contabilidad/manual/manual.component';
 import { VmostradorComponent } from './pages/vmostrador/vmostrador.component';
 import { ChatComponent } from './pages/chat/chat.component';
+import { VehiculosExComponent } from './pages/vehiculos/vehiculos-ex/vehiculos-ex.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -107,6 +108,7 @@ const routes: Routes = [
     children: [
       { path: 'add/:type', component: VehiculosAddComponent },
       { path: 'show', component: VehiculosShowComponent },
+      { path: 'ex/:id', component: VehiculosExComponent },
       { path: '', redirectTo: 'show', pathMatch: 'full' }
     ]
   },

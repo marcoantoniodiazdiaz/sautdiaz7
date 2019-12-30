@@ -15,6 +15,10 @@ export class VehiculosService {
     return this.database.get(`/vehiculos`);
   }
 
+  findById(id: string) {
+    return this.database.get(`/vehiculos/vehiculo/${id}`);
+  }
+
   findByCliente(id: string) {
     return this.database.get(`/vehiculos/cliente/${id}`);
   }

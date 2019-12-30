@@ -45,6 +45,7 @@ import { environment } from '../environments/environment.prod';
 // SOCKET
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ChatComponent } from './pages/chat/chat.component';
+import { VehiculosExComponent } from './pages/vehiculos/vehiculos-ex/vehiculos-ex.component';
 const config: SocketIoConfig = {
   url: environment.database,
   options: {}
@@ -84,7 +85,8 @@ const config: SocketIoConfig = {
     ManualComponent,
     VmostradorComponent,
     VmostradorProductosComponent,
-    ChatComponent
+    ChatComponent,
+    VehiculosExComponent
   ],
   imports: [
     ColorPickerModule,

@@ -1,0 +1,20 @@
+.card-title {
+    font-size: 300%;
+}
+
+.marcas {
+    text-align: right;
+}
+
+.card-subtitle {
+    margin-top: -40px;
+    font-size: 200%;
+}
+
+.card-text {
+    font-size: 120%;
+}
+
+th {
+    color: #424242;
+}

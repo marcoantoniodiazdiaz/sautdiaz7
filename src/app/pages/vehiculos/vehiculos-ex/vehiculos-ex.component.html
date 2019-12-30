@@ -1,0 +1,24 @@
+<div class="card" *ngFor="let vehiculo of VEHICULO">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <img src="assets/img/logos/{{ vehiculo['marca']['nombre'] }}.jpg" class="logo" width="100%">
+            </div>
+            <div class="col-6 marcas">
+                <h5 class="card-title font-weight-bold">{{ vehiculo['marca']['nombre'] }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ vehiculo['submarca'] }}</h6>
+            </div>
+        </div>
+        <hr>
+        <span class="card-text">Servicios Realizados</span>
+
+        <table class="table">
+            <thead>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Pagado</th>
+                <th class="text-right">Total</th>
+            </thead>
+        </table>
+    </div>
+</div>

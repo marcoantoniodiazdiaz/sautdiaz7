@@ -19,13 +19,12 @@
             <td>{{ vehiculo.marca['nombre'] }} {{ vehiculo.submarca }}</td>
             <td>{{ vehiculo.cliente['nombre'] }}</td>
             <td>
-                <div style="border-radius: 20px; width: 100%; height: 20px;" [ngStyle]="{'backgroundColor': vehiculo.color}">
-
-                </div>
+                <div style="border-radius: 20px; width: 100%; height: 20px;" [ngStyle]="{'backgroundColor': vehiculo.color}"></div>
             </td>
             <td class="text-right">
                 <!-- <button class="btn btn-outline-danger btn-sm" (click)="delete(vehiculo['_id'])"><i class="fa fa-trash"></i></button> -->
                 <button class="btn btn-outline-success btn-sm" (click)="edit(vehiculo)"><i class="fa fa-pen"></i></button>
+                <button class="btn btn-outline-neutral btn-sm" [routerLink]="['../ex', vehiculo['_id']]">Expediente</button>
             </td>
         </tr>
 
