@@ -1,0 +1,9 @@
+.table-sm td {
+    color: black;
+}
+
+.table,
+th,
+td {
+    color: black;
+}

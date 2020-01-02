@@ -16,9 +16,26 @@
             <thead>
                 <th>ID</th>
                 <th>Fecha</th>
-                <th>Pagado</th>
+                <th class="text-center">Pagado</th>
                 <th class="text-right">Total</th>
             </thead>
+            <tbody>
+                <tr *ngFor="let servicio of SERVICIOS">
+                    <td>{{ servicio['_id'] }}</td>
+                    <td>{{ servicio['fecha'] | date }}</td>
+                    <td class="text-center">
+                        <i class="fa fa-lg" [ngClass]="
+                            {
+                                'fa-cog fa-spin': servicio['estado'] == 0,
+                                'fa-exclamation text-warning': servicio['estado'] == 1,
+                                'fa-times text-danger': servicio['estado'] == 2,
+                                'fa-check text-success': servicio['estado'] == 3
+                            }
+                        "></i>
+                    </td>
+                    <td>$</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

@@ -12,11 +12,27 @@ export class ServiciosShowComponent implements OnInit {
   loading = true;
 
   constructor(private serviciosService: ServiciosService) {
+    this.getServicios();
+  }
+
+  ngOnInit() {}
+
+  getServicios() {
     this.serviciosService.get().subscribe(data => {
       this.SERVICIOS = data['data'];
       this.loading = false;
     });
   }
 
-  ngOnInit() {}
+  find(term: string) {
+    if (term === null || term === '') {
+      this.getServicios();
+
+      return;
+    }
+
+    this.serviciosService.findByTerm(term).subscribe((data: any) => {
+      this.SERVICIOS = data['data'];
+    });
+  }
 }

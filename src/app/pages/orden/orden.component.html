@@ -47,7 +47,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.nombre" name="nombre">
+                                            <input placeholder="NOMBRE COMPLETO" class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.nombre" name="nombre">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -56,7 +56,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-map"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.calle" name="calle">
+                                            <input placeholder="CALLE" class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.calle" name="calle">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -65,7 +65,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-paperclip"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="number" [(ngModel)]="cliente.numero" name="numero">
+                                            <input placeholder="NUMERO" class="form-control form-control-alternative" type="number" [(ngModel)]="cliente.numero" name="numero">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -74,7 +74,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-map-pin"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.colonia" name="colonia">
+                                            <input placeholder="COLONIA" class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.colonia" name="colonia">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -83,7 +83,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-at"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.email" name="email">
+                                            <input placeholder="CORREO ELECTRONICO" class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.email" name="email">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -92,10 +92,9 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-phone"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.telefono" name="telefono">
+                                            <input placeholder="TELEFONO/CELULAR" class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.telefono" name="telefono">
                                         </div>
                                     </div>
-                                    {{ cliente | json }}
                                     <button class="btn btn-success btn-block" type="submit"><i class="fa fa-check fa-2x"></i></button>
                                 </form>
                             </div>
@@ -119,7 +118,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-square"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.placa" name="placa">
+                                            <input placeholder="PLACA | EJ: JKL1290" class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.placa" name="placa">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -139,7 +138,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-shapes"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.submarca" name="submarca">
+                                            <input placeholder="SUBMARCA | EJ: ACCORD" class="form-control form-control-alternative" type="text" [(ngModel)]="vehiculo.submarca" name="submarca">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -158,7 +157,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="number" [(ngModel)]="vehiculo.modelo" name="modelo">
+                                            <input placeholder="MODELO | EJ: 1986" class="form-control form-control-alternative" type="number" [(ngModel)]="vehiculo.modelo" name="modelo">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -167,7 +166,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-sort-numeric-down"></i></span>
                                             </div>
-                                            <input class="form-control form-control-alternative" type="number" [(ngModel)]="vehiculo.motor" name="motor">
+                                            <input placeholder="MOTOR | EJ: 2.0" class="form-control form-control-alternative" type="number" [(ngModel)]="vehiculo.motor" name="motor">
                                         </div>
                                     </div>
                                     <div class="form-group">

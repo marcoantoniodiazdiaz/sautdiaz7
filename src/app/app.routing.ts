@@ -68,7 +68,7 @@ const routes: Routes = [
       { path: 'marcas', component: SettingsMarcasComponent },
       { path: 'departamento', component: SettingsDepartamentosComponent },
       { path: 'miss', component: SettingsMissComponent },
-      { path: '', redirectTo: 'miss', pathMatch: 'full' }
+      { path: '', redirectTo: 'marcas', pathMatch: 'full' }
     ]
   },
   {

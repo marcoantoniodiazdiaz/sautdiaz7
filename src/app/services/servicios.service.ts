@@ -18,6 +18,15 @@ export class ServiciosService {
     return this.database.get(`/servicios/${id}`);
   }
 
+  findByTerm(term: string) {
+    return this.database.get(`/servicios/find/${term}`);
+  }
+
+  findByVehiculo(id: string) {
+    return this.database.get(`/servicios/vehiculo/${id}`);
+  }
+
+
   post(servicio: ServicioModel) {
     return this.database.post(`/servicios`, servicio);
   }

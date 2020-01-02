@@ -7,4 +7,17 @@
       <option [ngValue]="departamento['_id']" *ngFor="let departamento of DEPARTAMENTOS">{{ departamento.nombre }}</option>
     </select>
     </div>
+
+
 </div>
+
+<hr>
+<form (ngSubmit)="guardar(f)" #f="ngForm">
+    <div class="form-group">
+        <span>Agregar Departamento</span>
+        <input type="email" class="form-control form-control-alternative" placeholder="NOMBRE" [(ngModel)]="departamento.nombre" name="nombre">
+
+    </div>
+
+    <button class="btn btn-success btn-block"><i class="fa fa-check"></i></button>
+</form>

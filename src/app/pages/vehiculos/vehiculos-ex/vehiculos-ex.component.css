@@ -15,6 +15,7 @@
     font-size: 120%;
 }
 
-th {
+th,
+td {
     color: #424242;
 }

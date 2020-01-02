@@ -11,7 +11,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
-                    <input class="form-control form-control-alternative dark-form" type="text" [(ngModel)]="cliente.nombre" name="nombre" pattern="[a-zA-Z\s]+">
+                    <input placeholder="NOMBRE COMPLETO" class="form-control form-control-alternative dark-form" type="text" [(ngModel)]="cliente.nombre" name="nombre" pattern="[a-zA-Z\s]+">
                 </div>
             </div>
         </div>
@@ -19,54 +19,21 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <label class="form-control-label" for="input-username">Calle: </label>
+                <label class="form-control-label" for="input-username">Direccíon: </label>
             </div>
         </div>
         <div class="col-md-9">
-            <div class="form-group">
-                <div class="input-group input-group-alternative mb-4">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-map"></i></span>
-                    </div>
-                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.calle" name="calle">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-map"></i></span>
                 </div>
+                <input placeholder="CALLE" class="form-control form-control-alternative" type="text" type="text" [(ngModel)]="cliente.calle" name="calle">
+                <input placeholder="NUMERO" class="form-control form-control-alternative" type="text" type="number" [(ngModel)]="cliente.numero" name="numero">
+                <input placeholder="COLONIA" class="form-control form-control-alternative" type="text" type="text" [(ngModel)]="cliente.colonia" name="colonia">
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label class="form-control-label" for="input-username">Numero: </label>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="form-group">
-                <div class="input-group input-group-alternative mb-4">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-paperclip"></i></span>
-                    </div>
-                    <input class="form-control form-control-alternative" type="number" [(ngModel)]="cliente.numero" name="numero">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label class="form-control-label" for="input-username">Colonia: </label>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="form-group">
-                <div class="input-group input-group-alternative mb-4">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-map-pin"></i></span>
-                    </div>
-                    <input class="form-control form-control-alternative" type="text" [(ngModel)]="cliente.colonia" name="colonia">
-                </div>
-            </div>
-        </div>
-    </div>
+    <br>
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
@@ -79,7 +46,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-at"></i></span>
                     </div>
-                    <input class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.email" name="email">
+                    <input placeholder="CORREO ELECTRONICO" class="form-control form-control-alternative" type="email" [(ngModel)]="cliente.email" name="email">
                 </div>
             </div>
         </div>
@@ -96,12 +63,12 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-phone"></i></span>
                     </div>
-                    <input class="form-control form-control-alternative" type="number" [(ngModel)]="cliente.telefono" name="telefono" required>
+                    <input placeholder="TELEFONO/CELULAR" class="form-control form-control-alternative" type="number" [(ngModel)]="cliente.telefono" name="telefono" required>
                 </div>
             </div>
         </div>
     </div>
-    {{ cliente | json }}
+
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-9 justify-content-end">

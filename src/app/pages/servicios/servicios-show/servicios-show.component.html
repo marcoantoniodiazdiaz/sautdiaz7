@@ -3,6 +3,16 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
+
+<div class="form-group">
+    <div class="input-group input-group-alternative mb-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+        <input class="form-control form-control-alternative dark-form" type="text" #box (keyup)="find(box.value)">
+    </div>
+</div>
+
 <table class="table align-items-center table-flush table-dark" *ngIf="!loading">
     <thead>
         <tr>
@@ -30,13 +40,13 @@
             </td>
             <td class="text-center">
                 <i class="fa fa-lg" [ngClass]="
-                  {
-                      'fa-cog fa-spin': servicio['estado'] == 0,
-                      'fa-exclamation text-warning': servicio['estado'] == 1,
-                      'fa-times text-danger': servicio['estado'] == 2,
-                      'fa-check text-success': servicio['estado'] == 3
-                  }
-              "></i>
+                    {
+                        'fa-cog fa-spin': servicio['estado'] == 0,
+                        'fa-exclamation text-warning': servicio['estado'] == 1,
+                        'fa-times text-danger': servicio['estado'] == 2,
+                        'fa-check text-success': servicio['estado'] == 3
+                    }
+                "></i>
             </td>
             <td class="text-right">
                 <a [routerLink]="['/venta', servicio['_id']]" class="btn btn-sm btn-outline-neutral"><i class="fa fa-eye"></i></a>
