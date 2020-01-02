@@ -52,6 +52,7 @@ export class ClientesShowComponent implements OnInit {
   getClientes() {
     this.clientesService.get().subscribe((data: any) => {
       this.CLIENTES = data['data'];
+
       this.loading = false;
     });
   }

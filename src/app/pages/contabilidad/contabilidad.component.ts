@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ContabilidadService } from '../../services/contabilidad.service';
 import { MovimientosModel } from '../../../models/movimiento.model';
@@ -11,7 +11,7 @@ declare var $: any;
   templateUrl: './contabilidad.component.html',
   styleUrls: ['./contabilidad.component.css']
 })
-export class ContabilidadComponent implements OnInit {
+export class ContabilidadComponent implements OnInit, OnDestroy {
   constructor(private contabilidadService: ContabilidadService) {
     const today = new Date();
     today.setHours(0, 0, 0);
@@ -21,6 +21,23 @@ export class ContabilidadComponent implements OnInit {
 
     console.log(this.start);
     this.ejecutarConsulta(this.start, this.end);
+  }
+
+  reloadControl() {
+    const reload = localStorage.getItem('reloadAdditions');
+    if (reload === '' || reload === null) {
+      localStorage.setItem('reloadAdditions', 'false');
+      location.reload();
+    } else {
+      if (reload === 'true') {
+        localStorage.setItem('reloadAdditions', 'false');
+        location.reload();
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    localStorage.setItem('reloadAdditions', 'true');
   }
 
   start: any;
@@ -36,7 +53,9 @@ export class ContabilidadComponent implements OnInit {
   utilidadRango = 0;
   utilidadTotal = 0;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.reloadControl();
+  }
 
   guardar(form: NgForm) {
     this.start = $('#start').val();
